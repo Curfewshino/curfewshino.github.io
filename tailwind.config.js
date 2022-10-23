@@ -8,8 +8,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'poppins' : ['Poppins', 'sans-serif'],
-        'adelia': ["ADELIA", "cursive"],
-        'ubuntu': ['Ubuntu', 'sans-serif']
+        'adelia': ['ADELIA', 'cursive', 'Open Sans','arial', 'san-serif', 'monospace'],
+        'ubuntu': ['Ubuntu', 'Trebuchet MS', 'Helvetica', 'sans-serif']
       },
     },
   },
