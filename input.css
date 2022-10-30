@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .text-interact{
+        @apply hover:text-indigo-600 duration-300
+    }
+}

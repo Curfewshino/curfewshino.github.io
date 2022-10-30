@@ -7,9 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'poppins' : ['Poppins', 'sans-serif'],
-        'adelia': ['ADELIA', 'Open Sans','arial', 'san-serif', 'monospace'],
-        'ubuntu': ['Ubuntu', 'Trebuchet MS', 'Helvetica', 'sans-serif']
+        'normal' : ['Noto Sans Mono', 'monospace','Tahoma', 'Verdana', 'sans-serif'],
       },
     },
   },
