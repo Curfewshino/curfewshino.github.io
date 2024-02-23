@@ -1,2 +1,3 @@
-# DEmayonnaise.github.io
-Website WIP not finished yet not even close https://demayonnaise.github.io/index
+# curfewshino.github.io
+Website WIP not finished yet not even close 
+[🌐 Github Page](https://curfewshino.github.io/index)
