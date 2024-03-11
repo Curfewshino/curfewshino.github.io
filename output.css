@@ -548,6 +548,40 @@ html {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -578,6 +612,10 @@ html {
 
 .top-\[50px\] {
   top: 50px;
+}
+
+.z-\[999\] {
+  z-index: 999;
 }
 
 .m-1 {
@@ -704,6 +742,10 @@ html {
   justify-content: normal;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
 .justify-between {
   justify-content: space-between;
 }
@@ -816,13 +858,12 @@ html {
   line-height: 2rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .text-\[1\.12rem\] {
   font-size: 1.12rem;
+}
+
+.text-\[200px\] {
+  font-size: 200px;
 }
 
 .text-\[80px\] {
@@ -837,15 +878,6 @@ html {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
-.text-\[200px\] {
-  font-size: 200px;
 }
 
 .font-bold {
@@ -949,6 +981,14 @@ html {
 
   .md\:invisible {
     visibility: hidden;
+  }
+
+  .md\:items-end {
+    align-items: flex-end;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start;
   }
 }
 
