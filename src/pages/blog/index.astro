@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PostItem from '../../components/PostItem.astro';
+import TagFilter from '../../components/TagFilter.astro';
+const posts = (await getCollection('blog')).filter((p) => !p.data.draft).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const tags = [...new Set(posts.flatMap((p) => p.data.tags))].sort();
+---
+<Base title="Blog" description="Notes on data, code and hardware.">
+  <h1>Blog</h1>
+  <p class="muted">Notes on data, code and hardware.</p>
+  {posts.length > 0 ? (
+    <>
+      <TagFilter tags={tags} target="#posts" />
+      <ul class="list" id="posts">{posts.map((p) => <PostItem post={p} />)}</ul>
+    </>
+  ) : (
+    <div class="empty">
+      <p>No posts yet. The first one will be a build log for the touch controller.</p>
+      <p class="muted">Until then, see the <a href="/projects/">projects</a>.</p>
+    </div>
+  )}
+</Base>

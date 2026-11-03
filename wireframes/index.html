@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wireframes — Mayo's site</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:32px;font:14px/1.4 system-ui,sans-serif;background:#eee;color:#333}
+h1{font-size:20px}h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#666;margin:36px 0 8px}
+.grid{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.screen{width:420px;background:#fff;border:2px solid #333;padding:16px}
+.nav{display:flex;justify-content:space-between;border-bottom:1px solid #999;padding-bottom:10px;margin-bottom:16px;font-weight:600}
+.nav span{font-weight:400;margin-left:12px}
+.box{border:1.5px dashed #888;background:#f4f4f4;padding:10px;margin-bottom:12px;color:#777}
+.img{height:90px;display:flex;align-items:center;justify-content:center;border:1.5px solid #888;background:repeating-linear-gradient(45deg,#f4f4f4,#f4f4f4 8px,#e8e8e8 8px,#e8e8e8 16px);color:#777}
+.lines i{display:block;height:8px;background:#ccc;margin:6px 0}.lines i:nth-child(2){width:85%}.lines i:nth-child(3){width:60%}
+.row{display:flex;gap:12px}.row>*{flex:1}
+.h{font-weight:700;font-size:18px;margin-bottom:6px;color:#333}.tag{display:inline-block;border:1px solid #888;border-radius:10px;padding:0 8px;font-size:11px;margin-right:4px}
+.foot{border-top:1px solid #999;padding-top:10px;margin-top:16px;font-size:12px;color:#666;display:flex;justify-content:space-between}
+.note{font-size:12px;color:#a33;margin-top:8px}
+</style></head><body>
+<h1>Wireframes — Mayo's portfolio &amp; blog (low-fi, no styling decisions)</h1>
+<p>Grey boxes = content placeholders. Tell me changes by screen name, e.g. "Home: move latest posts above projects".</p>
+
+<div class="grid">
+<div><h2>1 · Home</h2><div class="screen">
+<div class="nav"><div>[Logo / Name]</div><div><span>Projects</span><span>Blog</span><span>About</span><span>Contact</span><span>◐</span></div></div>
+<div class="h">Hi, I'm [Name].</div><div class="lines"><i></i><i></i><i></i></div>
+<div class="box">[ Primary link: View projects → ]  [ Secondary: Read the blog ]</div>
+<div class="h" style="font-size:14px;margin-top:18px">Featured projects</div>
+<div class="row"><div class="box"><div class="img">thumb</div>Title<div class="lines"><i></i><i></i></div></div><div class="box"><div class="img">thumb</div>Title<div class="lines"><i></i><i></i></div></div></div>
+<div class="h" style="font-size:14px">Latest posts</div>
+<div class="box">Date · Post title<div class="lines"><i></i><i></i></div></div><div class="box">Date · Post title<div class="lines"><i></i><i></i></div></div>
+<div class="foot"><span>© year Name</span><span>GitHub · Email · RSS</span></div></div></div>
+
+<div><h2>2 · Projects</h2><div class="screen">
+<div class="nav"><div>[Name]</div><div><span>Projects</span><span>Blog</span><span>About</span><span>Contact</span><span>◐</span></div></div>
+<div class="h">Projects</div><div class="box">Filter: [All] [Embedded] [Data] [Web]</div>
+<div class="box"><div class="row"><div class="img">image</div><div><b>Project title</b><div class="lines"><i></i><i></i><i></i></div><span class="tag">tag</span><span class="tag">tag</span><br>Repo ↗ · Demo ↗</div></div></div>
+<div class="box"><div class="row"><div class="img">image</div><div><b>Project title</b><div class="lines"><i></i><i></i><i></i></div><span class="tag">tag</span><span class="tag">tag</span><br>Repo ↗ · Demo ↗</div></div></div>
+<div class="box">… more projects (list layout, not grid)</div>
+<div class="foot"><span>© year Name</span><span>GitHub · Email · RSS</span></div></div></div>
+
+<div><h2>3 · Project detail</h2><div class="screen">
+<div class="nav"><div>[Name]</div><div><span>Projects</span><span>Blog</span><span>About</span><span>Contact</span><span>◐</span></div></div>
+<div class="note">← All projects</div><div class="h">Project title</div><span class="tag">tag</span><span class="tag">tag</span>
+<div class="img" style="height:140px;margin:12px 0">hero image / photo</div>
+<div class="lines"><i></i><i></i><i></i><i></i></div><div class="box">Links: Repo ↗ · Demo ↗ · Related blog post →</div>
+<div class="foot"><span>© year Name</span><span>GitHub · Email · RSS</span></div></div></div>
+
+<div><h2>4 · Blog index</h2><div class="screen">
+<div class="nav"><div>[Name]</div><div><span>Projects</span><span>Blog</span><span>About</span><span>Contact</span><span>◐</span></div></div>
+<div class="h">Blog</div><div class="box">Tags: [all] [sql] [python] [pico] …</div>
+<div class="box"><b>Post title</b> — Date · 5 min<div class="lines"><i></i><i></i></div><span class="tag">tag</span></div>
+<div class="box"><b>Post title</b> — Date · 3 min<div class="lines"><i></i><i></i></div><span class="tag">tag</span></div>
+<div class="box"><b>Post title</b> — Date · 7 min<div class="lines"><i></i><i></i></div><span class="tag">tag</span></div>
+<div class="foot"><span>© year Name</span><span>GitHub · Email · RSS</span></div></div></div>
+
+<div><h2>5 · Blog post</h2><div class="screen">
+<div class="nav"><div>[Name]</div><div><span>Projects</span><span>Blog</span><span>About</span><span>Contact</span><span>◐</span></div></div>
+<div class="note">← All posts</div><div class="h" style="font-size:22px">Post title</div><div style="font-size:12px;color:#777">Date · reading time · tags</div>
+<div class="lines" style="margin-top:12px"><i></i><i></i><i></i><i></i><i></i></div><div class="box">code block</div><div class="lines"><i></i><i></i><i></i></div>
+<div class="box">Prev post · Next post</div>
+<div class="foot"><span>© year Name</span><span>GitHub · Email · RSS</span></div></div></div>
+
+<div><h2>6 · About + Contact</h2><div class="screen">
+<div class="nav"><div>[Name]</div><div><span>Projects</span><span>Blog</span><span>About</span><span>Contact</span><span>◐</span></div></div>
+<div class="row"><div class="img" style="height:120px">photo (optional)</div><div><div class="h">About</div><div class="lines"><i></i><i></i><i></i><i></i></div></div></div>
+<div class="box">Skills / tools: SQL · Python · …</div>
+<div class="h" style="font-size:14px">Contact</div><div class="box">Email · GitHub · LinkedIn · Resume (PDF)</div>
+<div class="foot"><span>© year Name</span><span>GitHub · Email · RSS</span></div></div></div>
+</div></body></html>

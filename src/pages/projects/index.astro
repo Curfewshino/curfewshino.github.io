@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ProjectItem from '../../components/ProjectItem.astro';
+import TagFilter from '../../components/TagFilter.astro';
+import { getRepos, repoKey, formatUpdated } from '../../lib/github';
+import { SITE } from '../../config';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const tags = [...new Set(projects.flatMap((p) => p.data.tags))].sort();
+
+// Public repos without a write-up here yet, newest first.
+const user = repoKey(SITE.github);
+const skip = new Set([
+  user,
+  `${user}.github.io`,
+  ...SITE.githubExclude.map((n) => n.toLowerCase()),
+  ...projects.flatMap((p) => (p.data.repo ? [repoKey(p.data.repo)] : [])),
+]);
+const more = (await getRepos()).filter((r) => !r.fork && !r.archived && !skip.has(r.name.toLowerCase()));
+---
+<Base title="Projects" description="Things I've built.">
+  <h1>Projects</h1>
+  <p class="muted">Things I've built, mostly for the fun of it.</p>
+  <TagFilter tags={tags} target="#projects" />
+  <ul class="list" id="projects">{projects.map((p) => <ProjectItem project={p} />)}</ul>
+
+  {more.length > 0 && (
+    <>
+      <div class="section-head"><h2>More on GitHub</h2><a href={SITE.github}>All repositories</a></div>
+      <ul class="list">
+        {more.map((r) => (
+          <li>
+            <h3><a href={r.url}>{r.name} ↗</a></h3>
+            {r.description && <p>{r.description}</p>}
+            <div class="gh meta">
+              {r.language && <span>{r.language}</span>}
+              <span>{formatUpdated(r.pushed)}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+</Base>

@@ -1,0 +1,29 @@
+---
+// Starter for a new tool. Files starting with "_" are not published.
+// Copy to src/pages/tools/<slug>.astro, then register it in src/tools.ts.
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Tool name" description="One line on what this tool does.">
+  <a class="back" href="/tools/">← All tools</a>
+  <h1 style="margin-top:1rem">Tool name</h1>
+  <p class="lede">One line on what this tool does.</p>
+
+  <form class="tool" id="tool">
+    <label for="input">Input</label>
+    <textarea id="input" rows="6" placeholder="Paste something here"></textarea>
+    <div class="tool-actions"><button type="submit">Convert</button></div>
+    <label for="output">Result</label>
+    <output id="output" for="input"></output>
+  </form>
+</Base>
+
+<script>
+  // Runs in the browser. Astro bundles this (TypeScript is fine).
+  const form = document.getElementById('tool') as HTMLFormElement;
+  const input = document.getElementById('input') as HTMLTextAreaElement;
+  const output = document.getElementById('output') as HTMLOutputElement;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    output.textContent = input.value.toUpperCase(); // replace with the real logic
+  });
+</script>

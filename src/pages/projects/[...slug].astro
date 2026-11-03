@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import { repoFor, formatUpdated } from '../../lib/github';
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.id }, props: { project: p } }));
+}
+const { project } = Astro.props;
+const { Content } = await render(project);
+const d = project.data;
+const gh = await repoFor(d.repo);
+---
+<Base title={d.title} description={d.summary}>
+  <a class="back" href="/projects/">← All projects</a>
+  <h1 style="margin-top:1rem">{d.title}</h1>
+  <p class="lede">{d.summary}</p>
+  <div class="tags">
+    {d.status && <span class={`status status-${d.status.replace(' ', '-')}`}>{d.status}</span>}
+    {d.tags.map((t) => <span class="tag">{t}</span>)}
+  </div>
+  <div class="links">
+    {d.repo && <a href={d.repo}>Repository ↗</a>}
+    {d.demo && <a href={d.demo}>Demo ↗</a>}
+  </div>
+  {gh && (
+    <div class="gh meta">
+      {gh.language && <span>{gh.language}</span>}
+      <span>{formatUpdated(gh.pushed)}</span>
+      {gh.stars > 0 && <span>{gh.stars} {gh.stars === 1 ? 'star' : 'stars'}</span>}
+    </div>
+  )}
+  {d.cover && <Image class="hero" src={d.cover} alt={d.coverAlt ?? ''} widths={[640, 960, 1400]} sizes="(max-width: 720px) 100vw, 720px" loading="eager" />}
+  <div class="prose"><Content /></div>
+</Base>

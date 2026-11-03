@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { repoFor, formatUpdated } from '../lib/github';
+interface Props { project: CollectionEntry<'projects'>; }
+const { project } = Astro.props;
+const d = project.data;
+const gh = await repoFor(d.repo);
+const href = `/projects/${project.id}/`;
+---
+<li data-tags={d.tags.join('|')} class={d.cover ? 'has-thumb' : undefined}>
+  <div>
+    <h3><a href={href}>{d.title}</a></h3>
+    <p>{d.summary}</p>
+    <div class="tags">
+      {d.status && <span class={`status status-${d.status.replace(' ', '-')}`}>{d.status}</span>}
+      {d.tags.map((t) => <span class="tag">{t}</span>)}
+    </div>
+    {gh && (
+      <div class="gh meta">
+        <a href={gh.url}>GitHub ↗</a>
+        {gh.language && <span>{gh.language}</span>}
+        <span>{formatUpdated(gh.pushed)}</span>
+      </div>
+    )}
+  </div>
+  {d.cover && (
+    <a class="thumb" href={href} tabindex="-1" aria-hidden="true">
+      <Image src={d.cover} alt="" width={320} />
+    </a>
+  )}
+</li>

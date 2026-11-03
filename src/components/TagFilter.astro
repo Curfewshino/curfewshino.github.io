@@ -1,0 +1,10 @@
+---
+interface Props { tags: string[]; target: string; }
+const { tags, target } = Astro.props;
+---
+{tags.length > 0 && (
+  <div class="filters" data-filter={target} role="group" aria-label="Filter by tag">
+    <button type="button" data-tag="all" aria-pressed="true">All</button>
+    {tags.map((t) => <button type="button" data-tag={t} aria-pressed="false">{t}</button>)}
+  </div>
+)}
